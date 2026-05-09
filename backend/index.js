@@ -4,6 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './utils/db.js';
 import userRoute from "./routes/user.route.js";
+import messageRoute from "./routes/message.route.js";
+import postRoute from "./routes/post.route.js";
 
 dotenv.config();
 
@@ -25,6 +27,8 @@ app.use(cors(corsOptions));
 
 // routes
 app.use("/api/v2/users",userRoute);
+app.use("/api/v2/messages", messageRoute);
+app.use("/api/v2/posts", postRoute);
 
 app.listen(PORT, () => {
     connectDB();
